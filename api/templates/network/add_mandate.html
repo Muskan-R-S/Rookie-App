@@ -1,0 +1,14 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<section class="d-flex justify-content-center">
+    <div>
+        <h1>Add Mandate</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Add Mandate</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

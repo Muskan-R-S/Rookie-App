@@ -1,0 +1,34 @@
+{% extends "network/layout.html" %} {% block body %}
+<section id="dashboard" class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center">
+    <h1 class="dashboard-title d-flex">My {{title}}</h1>
+  </div>
+</section>
+
+<section id="table" style="margin-top: 3%">
+  <a href="{% url 'add_mandate' %}" class="btn btn-link" style="align-items: center;  margin-bottom: 15px;">Add Mandate</a>
+  <table id="customers">
+    <tr>
+      <th>Company_Name</th>
+      <th>Requirement</th>
+      <!-- <th>Phone Number</th> --> 
+      <th>Role Name</th>
+      
+      <!-- <th>Resume</th> -->
+    </tr>
+
+    {% for mandate in mandates%}
+    
+    <tr>
+      <td>{{mandate.company_name}}</td>
+      <td>{{mandate.requirement}}</td>
+      <!-- <td>{{candidate.mobile}}</td> -->
+      <td>{{mandate.role_name}}</td>
+      
+      <!-- <td>{{candidate.resume}}</td> -->
+    </tr>
+    {% endfor %}
+  </table>
+</section>
+
+{% endblock %}

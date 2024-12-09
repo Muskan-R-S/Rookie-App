@@ -1,0 +1,46 @@
+{% extends "network/layout.html" %} {% block body %}
+<section id="dashboard" class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center">
+    <h1 class="dashboard-title d-flex">My {{title}}</h1>
+  </div>
+</section>
+
+<section id="table" style="margin-top: 3%">
+  <table id="customers">
+    <tr>
+      <th>Name</th>
+      <th>E-mail</th>
+      <!-- <th>Phone Number</th> -->
+      <th>Current Role</th>
+      <th>Experience</th>
+      <th>DOB</th>
+      <th>Status</th>
+      <!-- <th>Resume</th> -->
+    </tr>
+
+    {% for candidate in candidates%}
+    
+    <tr>
+      <td>{{candidate.first_name}}</td>
+      <td>{{candidate.email_id}}</td>
+      <!-- <td>{{candidate.mobile}}</td> -->
+      <td>{{candidate.current_role}}</td>
+      <td>{{candidate.experience}}</td>
+      <td>{{candidate.DOB}}</td>
+      <td>
+        <form method="post" action="{% url 'update_status' candidate.id %}">
+          {% csrf_token %}
+          <select name="status" onchange="this.form.submit()">
+            {% for key, value in candidate.status_choices %}
+            <option value="{{ key }}" {% if candidate.status == key %}selected{% endif %}>{{ value }}</option>
+            {% endfor %}
+          </select>
+        </form>
+      </td>
+      <!-- <td>{{candidate.resume}}</td> -->
+    </tr>
+    {% endfor %}
+  </table>
+</section>
+
+{% endblock %}

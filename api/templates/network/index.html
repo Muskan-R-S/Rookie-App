@@ -1,0 +1,58 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+  <section id="dashboard" class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
+      <h1 class="dashboard-title d-flex ">Dashboard</h1>
+    </div>
+  </section>
+
+  <section id="featured" class="featured">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="icon-box">
+            <i class="bi bi-card-checklist"></i>
+            <h3 class="options-dashboard-1"><a href="{% url 'candidates' %}">My Candidates</a></h3>
+
+          </div>
+        </div>
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="icon-box">
+            <i class="bi bi-bar-chart"></i>
+            <h3 class="options-dashboard-2"><a href="{% url 'mandates' %}">Mandates</a></h3>
+
+          </div>
+        </div>
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="icon-box">
+            <i class="bi bi-binoculars"></i>
+            <h3 class="options-dashboard-3" ><a href="{% url 'index' %}">Joinies</a></h3>
+
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 5%;">
+        <div class="col-lg-4" style="margin-left: 34%;">
+          <div class="icon-box">
+            <i class="bi bi-binoculars"></i>
+            <div class="row">
+              <div class="col-lg-12">
+                <h3 class="options-dashboard-4" ><a href="{% url 'add_candidate' %}">Add Candidate</a></h3>
+              </div>
+              <div class="col-lg-12">
+                <i class="far fa-plus-square add-btn" style="color: #545454;"></i>
+              </div>
+
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </section>
+{% endblock %}
